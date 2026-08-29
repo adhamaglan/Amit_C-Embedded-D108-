@@ -1,0 +1,20 @@
+# Atmel Studio User Settings & Cache
+.vs/
+*.atsuo
+*.suo
+*.user
+*.xml
+*.cproj
+*.atsln
+
+# Build Artifacts & Outputs
+**/Debug/
+**/Release/
+*.hex
+*.elf
+*.eep
+*.map
+*.srec
+*.lss
+*.o
+*.d
