@@ -40,7 +40,7 @@ void DIO_voidSetPortDir (u8 Copy_u8PortID, u8 Copy_u8Dir);
 void DIO_voidSetPortVal (u8 Copy_u8PortID, u8 Copy_u8Val);
 u8	 DIO_u8GetPortVal   (u8 Copy_u8PortID);
 
-void DIO_viodTogPinVal  (u8 Copy_u8PortID,u8 Copy_u8PinID);
+void DIO_voidTogPinVal  (u8 Copy_u8PortID,u8 Copy_u8PinID);
 
 void DIO_voidEnablePullUp (u8 Copy_u8PortID,u8 Copy_u8PinID);
 

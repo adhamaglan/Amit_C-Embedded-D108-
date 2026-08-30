@@ -15,9 +15,9 @@ void CLCD_voidInit(void);
 void CLCD_voidSendData(u8 Copy_u8Data);
 void CLCD_voidSendInst(u8 Copy_u8Data);
 void CLCD_voidSendString(const u8 *Copy_u8Str);
-void CLCD_voidSstCursorPos(u8 x,u8 y);
+void CLCD_voidSetCursorPos(u8 Copy_u8x,u8 Copy_u8y);
 void CLCD_voidClearScreen(void);
-void CLCD_voidSendSpecialChar(u8 Copy_u8Index,const u8 *Copy_u8Arr,u8 Copyu8x,u8 Copyu8y);
+void CLCD_voidSendSpecialChar(u8 Copy_u8Index,const u8 *Copy_u8Arr,u8 Copy_u8x,u8 Copy_u8y);
 
 
 

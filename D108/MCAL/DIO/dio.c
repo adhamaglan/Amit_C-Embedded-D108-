@@ -172,7 +172,7 @@ u8	 DIO_u8GetPortVal (u8 Copy_u8PortID)
 }
 
 
-void DIO_viodTogPinVal  (u8 Copy_u8PortID,u8 Copy_u8PinID)
+void DIO_voidTogPinVal  (u8 Copy_u8PortID,u8 Copy_u8PinID)
 {
 	if ((Copy_u8PortID <= DIO_PORTD) && (Copy_u8PinID <= DIO_PIN7))
 	{

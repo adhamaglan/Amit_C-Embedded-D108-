@@ -137,9 +137,9 @@ void CLCD_voidSendString(const u8 *Copy_u8Str)
 
 
 
-void CLCD_voidSstCursorPos(u8 x,u8 y)
+void CLCD_voidSetCursorPos(u8 Copy_u8x,u8 Copy_u8y)
 {
-	u8 address=x+y*0x40;
+	u8 address=Copy_u8x+Copy_u8y*0x40;
 	SET_BIT(address,7);
 	CLCD_voidSendInst(address);
 }
@@ -154,7 +154,7 @@ void CLCD_voidClearScreen(void)
 
 
 
-void CLCD_voidSendSpecialChar(u8 Copy_u8Index,const u8 *Copy_u8Arr,u8 Copyu8x,u8 Copyu8y)
+void CLCD_voidSendSpecialChar(u8 Copy_u8Index,const u8 *Copy_u8Arr,u8 Copy_u8x,u8 Copy_u8y)
 {
 	u8 address=Copy_u8Index * 8;
 	SET_BIT(address,6);
@@ -164,6 +164,6 @@ void CLCD_voidSendSpecialChar(u8 Copy_u8Index,const u8 *Copy_u8Arr,u8 Copyu8x,u8
 		CLCD_voidSendData(Copy_u8Arr[i]);
 	}
 	// char stored in CGRAM
-	CLCD_voidSstCursorPos(Copyu8x,Copyu8y);
+	CLCD_voidSetCursorPos(Copy_u8x,Copy_u8y);
 	CLCD_voidSendData(Copy_u8Index);
 }
