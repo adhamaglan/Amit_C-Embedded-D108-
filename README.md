@@ -144,7 +144,7 @@ void CLCD_voidClearScreen (void);
 
 void CLCD_voidSendSpecialChar (u8 Copy_u8Index,const u8 
 *Copy_u8Arr,u8 Copy_u8x,u8 Copy_u8y);
-// allows user to create special characters and store them in CGRAM to be used
+// allows user to create special characters and store them in CGRAM and send it to LCD
 ```
 ### Kpad Subsystem (`KPAD_int.h`)
 ```
