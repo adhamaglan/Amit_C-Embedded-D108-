@@ -36,7 +36,7 @@ int main(void)
 	 CLCD_voidSendSpecialChar(5,arr6,9,0);
 	 CLCD_voidSendSpecialChar(6,arr7,8,0);
 	 CLCD_voidSendSpecialChar(7,arr8,7,0);
-	 CLCD_voidSstCursorPos(6,0);
+	 CLCD_voidSetCursorPos(6,0);
     while (1) 
     {
 	}
