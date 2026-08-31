@@ -171,3 +171,10 @@ void KPAD_voidInit (void);
 u8 KPAD_u8GetKeyPressed (void);
 // allows the user to get the pressed key
 ```
+---
+## Interactive Showcase
+**Here is the main.c working on Proteus! This example initializes the CLCD and KPAD drivers and continuously reads keypad input, displaying pressed characters on the LCD and clearing the display when the ON/C button ('c') is pressed.**
+
+<p align="center">
+  <img src="./KPAD&CLCD.png" alt="Keypad and CLCD Proteus Simulation" width="700">
+</p>
