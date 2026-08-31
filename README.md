@@ -70,26 +70,44 @@ The system is configured to run both optimized **4-Bit Mode** and **8-Bit Mode**
 * **The interface:** 
     * 8-Bit Mode -> `CLCD_8_BITS`
     * 4-Bit Mode -> `CLCD_4_BITS`
-* **Data Port:** `CLCD_DATA_PORT`
+* **Data Port:** `CLCD_DATA_PORTx`
 <details style="margin-top: 5px; margin-bottom: 10px; margin-left: 20px;">
-<summary> IMP! While using 4-bitmode.</summary>
+<summary> IMP! While using 4-bitmode. </summary>
 
 * user inputs the GPIO Pins for :
-    * CLCD_DATA_PIN<code>X<sub>0</sub></code>
-    * CLCD_DATA_PIN<code>X<sub>1</sub></code>
-    * CLCD_DATA_PIN<code>X<sub>2</sub></code>
-    * CLCD_DATA_PIN<code>X<sub>3</sub></code>
+    * CLCD_DATA_PIN<code>x<sub>0</sub></code>
+    * CLCD_DATA_PIN<code>x<sub>1</sub></code>
+    * CLCD_DATA_PIN<code>x<sub>2</sub></code>
+    * CLCD_DATA_PIN<code>x<sub>3</sub></code>
 </details>
 
-* **Control Port:** `CLCD_CTRL_PORT`
+* **Control Port:** `CLCD_CTRL_PORTx`
     * The user inputs the GPIO pins for :
-        * CLCD_RS_PIN
-        * CLCD_RW_PIN
-        * CLCD_E_PIN
+        * CLCD_RS_PIN`x`
+        * CLCD_RW_PIN`x`
+        * CLCD_E_PIN`x`
 * **Data Nibble (only on 4-bit interface):** Pins configured are mapped to data lines `D4`-`D7`
 
 ### 2. Keypad (KPAD)
-Currently working on..
+The Keypad is a 4x4 Matrix containing 16 buttons
+* **The interface:** 
+    * it is configured to run in `8 GPIO pins`
+<details style="margin-top: 5px; margin-bottom: 10px; margin-left: 20px;">
+<summary> Data Port/Ports: <code>KPAD_COL_PORTx</code> & <code>KPAD_ROW_PORTx</code> </summary>
+
+* user inputs the GPIO Pins for :
+    * **KPAD_COL_PORT`x`**
+        * KPAD_COL_PIN<code>x<sub>0</sub></code>
+        * KPAD_COL_PIN<code>x<sub>1</sub></code>
+        * KPAD_COL_PIN<code>x<sub>2</sub></code>
+        * KPAD_COL_PIN<code>x<sub>3</sub></code>
+
+    * **KPAD_ROW_PORT`x`**
+        * KPAD_ROW_PIN<code>x<sub>0</sub></code>
+        * KPAD_ROW_PIN<code>x<sub>1</sub></code>
+        * KPAD_ROW_PIN<code>x<sub>2</sub></code>
+        * KPAD_ROW_PIN<code>x<sub>3</sub></code>
+</details>
 
 
 
@@ -145,7 +163,11 @@ void CLCD_voidClearScreen (void);
 void CLCD_voidSendSpecialChar (u8 Copy_u8Index, const u8 *Copy_u8Arr, u8 Copy_u8x, u8 Copy_u8y);
 // allows user to create special characters and store them in CGRAM and send it to LCD
 ```
-### Kpad Subsystem (`KPAD_int.h`)
-```
-Currently working on..
+### Keypad Subsystem  (`KPAD_int.h`)
+```c
+void KPAD_voidInit (void);
+// initializes the Keypad
+
+u8 KPAD_u8GetKeyPressed (void);
+// allows the user to get the pressed key
 ```
