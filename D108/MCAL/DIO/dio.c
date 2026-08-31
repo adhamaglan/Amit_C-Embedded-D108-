@@ -192,16 +192,44 @@ void DIO_voidTogPinVal  (u8 Copy_u8PortID,u8 Copy_u8PinID)
 }
 
 
-void DIO_voidEnablePullUp (u8 Copy_u8PortID,u8 Copy_u8PinID)
+void DIO_voidEnablePullUp (u8 Copy_u8PortID,u8 Copy_u8PinID)	// Pin direction must be set to INPUT first
 {
 	if ((Copy_u8PortID <= DIO_PORTD) && (Copy_u8PinID <= DIO_PIN7))
 	{
 		switch (Copy_u8PortID)
 		{
-			case DIO_PORTA: SET_BIT(PORTA_REG, Copy_u8PinID); break;
-			case DIO_PORTB: SET_BIT(PORTB_REG, Copy_u8PinID); break;
-			case DIO_PORTC: SET_BIT(PORTC_REG, Copy_u8PinID); break;
-			case DIO_PORTD: SET_BIT(PORTD_REG, Copy_u8PinID); break;
+			case DIO_PORTA: if(GET_BIT(DDRA_REG,Copy_u8PinID)==0)
+							{ 
+								SET_BIT(PORTA_REG, Copy_u8PinID);
+							}
+							else
+							{
+								// error Pin not initialized as Input
+							}break;
+			case DIO_PORTB: if(GET_BIT(DDRB_REG,Copy_u8PinID)==0)
+							{ 
+								SET_BIT(PORTB_REG, Copy_u8PinID);
+							}
+							else
+							{
+								// error Pin not initialized as Input
+							}break;
+			case DIO_PORTC: if(GET_BIT(DDRC_REG,Copy_u8PinID)==0)
+							{ 
+								SET_BIT(PORTC_REG, Copy_u8PinID);
+							}
+							else
+							{
+								// error Pin not initialized as Input
+							}break;
+			case DIO_PORTD: if(GET_BIT(DDRD_REG,Copy_u8PinID)==0)
+							{ 
+								SET_BIT(PORTD_REG, Copy_u8PinID);
+							}
+							else
+							{
+								// error Pin not initialized as Input
+							}break;
 			default: break; // error Invalid PortID
 		}
 	}

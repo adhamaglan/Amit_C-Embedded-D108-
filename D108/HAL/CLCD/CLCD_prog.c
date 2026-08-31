@@ -6,12 +6,12 @@
  */ 
 #define F_CPU 16000000ul
 
-#include "../../service//std_types.h"
-#include "../../service//bit_math.h"
+#include "../../service/std_types.h"
+#include "../../service/bit_math.h"
 #include "../../MCAL/DIO/dio.h"
+#include "CLCD_priv.h"
 #include "CLCD_config.h"
 #include "CLCD_int.h"
-#include "CLCD_priv.h"
 #include <util/delay.h>
 
 
@@ -85,10 +85,10 @@ void CLCD_voidSendData(u8 Copy_u8Data)
 	sendEnablePulse();
 	#elif CLCD_TYPE == CLCD_4_BITS
 	// send High nibble data
-	setHalfPort(Copy_u8Data >> 4);
+	setHalfPort(Copy_u8Data >> 4); 
 	// pulse
 	sendEnablePulse();
-	// send High nibble data
+	// send Low nibble data
 	setHalfPort(Copy_u8Data & 0x0f);
 	// pulse
 	sendEnablePulse();
@@ -114,7 +114,7 @@ void CLCD_voidSendInst(u8 Copy_u8Data)
 	setHalfPort(Copy_u8Data >> 4);
 	// pulse
 	sendEnablePulse();
-	// send High nibble instruction
+	// send Low nibble instruction
 	setHalfPort(Copy_u8Data & 0x0f);
 	// pulse
 	sendEnablePulse();

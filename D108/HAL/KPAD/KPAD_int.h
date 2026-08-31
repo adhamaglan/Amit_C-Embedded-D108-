@@ -10,8 +10,8 @@
 #define KPAD_INT_H_
 
 
-void KPAD_voidInit();
-u8 KPAD_u8GetKeyPressed();
+void KPAD_voidInit(void);
+u8 KPAD_u8GetKeyPressed(void);
 
 
 

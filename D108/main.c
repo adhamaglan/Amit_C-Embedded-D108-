@@ -13,31 +13,31 @@
 #include "MCAL/DIO/dio.h"
 #include "HAL/CLCD/CLCD_config.h"
 #include "HAL/CLCD/CLCD_int.h"
+#include "HAL/KPAD/KPAD_config.h"
+#include "HAL/KPAD/KPAD_int.h"
 #include <util/delay.h>
-
-
-u8 arr1[]= {0x06, 0x08, 0x1e, 0x00, 0x04, 0x04, 0x04, 0x04}; // ?
-u8 arr2[]= {0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x0e}; // ?
-u8 arr3[]= {0x00, 0x00, 0x00, 0x1e, 0x01, 0x07, 0x05, 0x1f}; // ?
-u8 arr4[]= {0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x05, 0x1f}; // ?
-u8 arr5[]= {0x00, 0x00, 0x00, 0x01, 0x01, 0x1e, 0x00, 0x0a}; // ?
-u8 arr6[]= {0x00, 0x00, 0x00, 0x0c, 0x14, 0x0f, 0x04, 0x18}; // ?
-u8 arr7[]= {0x00, 0x04, 0x00, 0x04, 0x04, 0x1b, 0x00, 0x00}; // ? 
-u8 arr8[]= {0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x14, 0x08}; // ?
 
 int main(void)
 {
-	 CLCD_voidInit();
-	 CLCD_voidSendSpecialChar(0,arr1,15,0);
-	 CLCD_voidSendSpecialChar(1,arr2,14,0);
-	 CLCD_voidSendSpecialChar(2,arr3,13,0);
-	 CLCD_voidSendSpecialChar(3,arr4,12,0);
-	 CLCD_voidSendSpecialChar(4,arr5,10,0);
-	 CLCD_voidSendSpecialChar(5,arr6,9,0);
-	 CLCD_voidSendSpecialChar(6,arr7,8,0);
-	 CLCD_voidSendSpecialChar(7,arr8,7,0);
-	 CLCD_voidSetCursorPos(6,0);
+	u8 Local_u8PressedKey=KPAD_NO_PRESSED_KEY;
+
+	CLCD_voidInit();
+	KPAD_voidInit();
+
     while (1) 
     {
+		Local_u8PressedKey=KPAD_u8GetKeyPressed();
+		if (Local_u8PressedKey != KPAD_NO_PRESSED_KEY)
+		{
+
+			if (Local_u8PressedKey=='c')
+			{
+				CLCD_voidClearScreen();
+			}
+			else
+			{
+				CLCD_voidSendData(Local_u8PressedKey);
+			}
+		}
 	}
 }
