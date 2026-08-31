@@ -21,8 +21,8 @@ The codebase follows an industry-standard layered design pattern to maximize cod
 <summary>📂 <b>MCAL</b> (Microcontroller Abstraction Layer)</summary>
 
 * 📄 **`regdef.h`** — Direct volatile memory-mapped register pointer definitions for AVR (Atmega32).
-<details style="margin-left: 20px;">
-<summary>📂 <b>DIO/</b> (Digital Input/Output Driver)</summary>
+<details>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;📂 <b>DIO/</b> (Digital Input/Output Driver)</summary>
 
 * 📄 `dio.c` — Implementation of pin/port controls ( direction, value, etc... ).
 * 📄 `dio.h` — Pin/Port directions and macro definitions.
@@ -32,8 +32,8 @@ The codebase follows an industry-standard layered design pattern to maximize cod
 <details>
 <summary>📂 <b>HAL</b> (Hardware Abstraction Layer)</summary>
 
-<details style="margin-left: 20px; margin-top: 10px;">
-<summary>📂 <b>CLCD/</b> (Character LCD Driver)</summary>
+<details>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;📂 <b>CLCD/</b> (Character LCD Driver)</summary>
 
 * 📄 `CLCD_config.h` — Interface pin routing layout.
 * 📄 `CLCD_int.h` — Character LCD Functions declarations.
@@ -41,8 +41,8 @@ The codebase follows an industry-standard layered design pattern to maximize cod
 * 📄 `CLCD_prog.c` — Character LCD Functions implementations.
 </details>
 
-<details style="margin-left: 20px; margin-top: 10px;">
-<summary>📂 <b>KPAD/</b> (Matrix Keypad Driver)</summary>
+<details>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;📂 <b>KPAD/</b> (Matrix Keypad Driver)</summary>
 
 * 📄 `KPAD_config.h` — Row/column matrix pins.
 * 📄 `KPAD_int.h` — Matrix keypad Functions declarations.
