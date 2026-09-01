@@ -2,9 +2,23 @@
 
 A highly modular firmware application built for AVR architecture (e.g., ATmega32) using **Atmel Studio 7.0**. This repository implements a layered software architecture featuring custom hardware abstraction drivers for Character LCDs (CLCD) and Keypads (KPAD).
 
-## 🛠️ Software Architecture
+## Software Architecture
 
 The codebase follows an industry-standard layered design pattern to maximize code reusability and hardware independence.
+
+## 🛠️ How to Build and Run
+
+### Using Microchip Studio / Atmel Studio 7.0
+1. **Clone this repository to your local computer:**
+```bash
+git clone https://github.com/adhamaglan/Amit-C-Embedded-D108-.git
+```
+
+2. **Launch Microchip Studio (Atmel Studio 7.0).**
+
+3. **Select File > Open > Project/Solution... and open the project solution file (`.atsln`).**
+
+4. **Build solution and burn the `.hex` file on your `ATmega32` chip**
 
 ## 📂 Repository Structure
 
