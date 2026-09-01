@@ -19,7 +19,7 @@ static const u8 KPAD_COL_Arr[KPAD_COL_NUM] = {KPAD_COL_PIN0, KPAD_COL_PIN1, KPAD
 static const u8 KPAD_ROW_Arr[KPAD_ROW_NUM] = {KPAD_ROW_PIN0, KPAD_ROW_PIN1, KPAD_ROW_PIN2, KPAD_ROW_PIN3};
 void KPAD_voidInit(void)
 {
-	for(u8 i=0;i<4;i++)
+	for(u8 i=0;i<KPAD_ROW_COL_NUM;i++)
 	{
 		DIO_voidSetPinDir(KPAD_COL_PORT,KPAD_COL_Arr[i],DIO_PIN_OUTPUT);		// COL -> OUTPUT
 		DIO_voidSetPinVal(KPAD_COL_PORT,KPAD_COL_Arr[i],DIO_PIN_HIGH);			// COL Value -> 1
@@ -41,12 +41,12 @@ u8 KPAD_u8GetKeyPressed(void)
 	static const u8 Local_u8KeyMatrix[KPAD_ROW_NUM][KPAD_COL_NUM]=KPAD_KEYS;
 	
 	// Looping through each COL
-	for(Local_u8ColIdx=0;Local_u8ColIdx<4;Local_u8ColIdx++)
+	for(Local_u8ColIdx=0;Local_u8ColIdx<KPAD_COL_NUM;Local_u8ColIdx++)
 	{
 		// Activate current COL by pulling it low
 		DIO_voidSetPinVal(KPAD_COL_PORT,KPAD_COL_Arr[Local_u8ColIdx],DIO_PIN_LOW);
 		// Read all ROW states for the active COL
-		for(Local_u8RowIdx=0;Local_u8RowIdx<4;Local_u8RowIdx++)
+		for(Local_u8RowIdx=0;Local_u8RowIdx<KPAD_ROW_NUM;Local_u8RowIdx++)
 		{
 			Local_u8PinVal=DIO_u8GetPinVal(KPAD_ROW_PORT,KPAD_ROW_Arr[Local_u8RowIdx]);
 			// Check if ROW is pulled LOW (key pressed)

@@ -130,7 +130,14 @@ void CLCD_voidSendString(const u8 *Copy_u8Str)
 	u8 Local_u8Index = 0;
 	while (Copy_u8Str[Local_u8Index] != '\0')
 	{
-		CLCD_voidSendData(Copy_u8Str[Local_u8Index]);
+		// adding new line command '\n'
+		if (Copy_u8Str[Local_u8Index]=='\n')
+		{
+			CLCD_voidSetCursorPos(0,1);
+		}else
+		{
+			CLCD_voidSendData(Copy_u8Str[Local_u8Index]);
+		}
 		Local_u8Index++;
 	}
 }

@@ -10,9 +10,9 @@
 #define KPAD_PRIV_H_
 
 
-
-#define KPAD_ROW_NUM    4
-#define KPAD_COL_NUM    4
+#define KPAD_ROW_COL_NUM	4
+#define KPAD_ROW_NUM		4
+#define KPAD_COL_NUM		4
 
 
 
