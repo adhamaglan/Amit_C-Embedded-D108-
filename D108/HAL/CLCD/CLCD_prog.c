@@ -144,6 +144,42 @@ void CLCD_voidSendString(const u8 *Copy_u8Str)
 
 
 
+void CLCD_voidSendNumber(s32 Copy_s32Number)
+{
+	u8 Local_u8Buffer[10];
+	//  A 32-bit signed integer has a maximum value of 2,147,483,647 (10 digits)
+	s8 Local_s8Idx = 0;
+	//	track the number of digits added to Local_u8Buffer
+	u32 Local_u32Num;
+	if (Copy_s32Number==0)
+	{
+		CLCD_voidSendData('0');
+		return;
+	}
+	if (Copy_s32Number<0)
+	{
+		CLCD_voidSendData('-');
+		//	Cast to u32 before negation to safely handle the 32bit int limit
+		//	(-2,147,483,648) -> (2,147,483,648) !! overflow +ve limit is (2,147,483,647)
+		Local_u32Num= -(u32)Copy_s32Number;
+	}
+	else
+	{
+		Local_u32Num=(u32)Copy_s32Number;
+	}
+	while (Local_u32Num>0)
+	{
+		Local_u8Buffer[Local_s8Idx++]=(Local_u32Num%10)+'0';
+		Local_u32Num/=10;
+	}
+	while (Local_s8Idx > 0)
+	{
+		CLCD_voidSendData(Local_u8Buffer[--Local_s8Idx]);
+	}
+}
+
+
+
 void CLCD_voidSetCursorPos(u8 Copy_u8x,u8 Copy_u8y)
 {
 	u8 address=Copy_u8x+Copy_u8y*0x40;

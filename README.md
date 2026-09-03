@@ -168,6 +168,9 @@ void CLCD_voidSendInst (u8 Copy_u8Data);
 void CLCD_voidSendString (const u8 *Copy_u8Str);
 // allows user to send a string to LCD (using send data function)
 
+void CLCD_voidSendNumber(s32 Copy_s32Number);
+// allows user to send a number to LCD from -2,147,483,648 to 2,147,483,647
+
 void CLCD_voidSetCursorPos (u8 Copy_u8x,u8 Copy_u8y);
 // allows user to control cursor position
 
