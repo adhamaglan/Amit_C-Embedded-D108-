@@ -159,22 +159,29 @@ void CLCD_voidSendNumber(s32 Copy_s32Number)
 	if (Copy_s32Number<0)
 	{
 		CLCD_voidSendData('-');
-		//	Cast to u32 before negation to safely handle the 32bit int limit
-		//	(-2,147,483,648) -> (2,147,483,648) !! overflow +ve limit is (2,147,483,647)
+		//	printing the -ve sign
 		Local_u32Num= -(u32)Copy_s32Number;
+		//	Cast to u32 before negation to safely handle the 32bit int limit
+		//	(-2,147,483,648) -> (2,147,483,648) !!overflow +ve 32bit int limit is (2,147,483,647)
+		
 	}
 	else
 	{
 		Local_u32Num=(u32)Copy_s32Number;
 	}
-	while (Local_u32Num>0)
+	while(Local_u32Num>0)
 	{
 		Local_u8Buffer[Local_s8Idx++]=(Local_u32Num%10)+'0';
+		//	stores the rightmost digit in the buffer array
+		//  (Local_u32Num%10)+'0' -> adds the ASCII offset of char '0' to obtain the digit's ASCII
 		Local_u32Num/=10;
+		//	integer division equivalent to removing (dropping) the rightmost digit
 	}
 	while (Local_s8Idx > 0)
 	{
 		CLCD_voidSendData(Local_u8Buffer[--Local_s8Idx]);
+		//	sends the number in the form of an array containing each digit's ASCII 
+		//  to print as char on CLCD
 	}
 }
 
