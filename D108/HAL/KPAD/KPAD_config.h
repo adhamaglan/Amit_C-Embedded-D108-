@@ -26,9 +26,6 @@
 #define  KPAD_ROW_PIN2		DIO_PIN6		//	choose Row PIN2
 #define  KPAD_ROW_PIN3		DIO_PIN7		//	choose Row PIN3
 
-#define KPAD_KEYS	{{'7', '8', '9', '/'}, \
-					{'4', '5', '6', '*'},  \
-					{'1', '2', '3', '-'},  \
-					{'c', '0', '=', '+'}}
+
 
 #endif /* KPAD_CONFIG_H_ */

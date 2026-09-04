@@ -23,7 +23,6 @@ int main(void)
 
 	CLCD_voidInit();
 	KPAD_voidInit();
-
     while (1) 
     {
 		Local_u8PressedKey=KPAD_u8GetKeyPressed();

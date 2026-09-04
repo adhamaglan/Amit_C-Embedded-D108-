@@ -60,6 +60,7 @@ git clone https://github.com/adhamaglan/Amit-C-Embedded-D108-.git
 
 * 📄 `KPAD_config.h` — Row/column matrix pins.
 * 📄 `KPAD_int.h` — Matrix keypad Functions declarations.
+* 📄 `KPAD_priv.h` — Row/column matrix key numbers/definitions.
 * 📄 `KPAD_prog.c` — Matrix keypad Functions implementations.
 </details>
 </details>
